@@ -5,7 +5,8 @@ import (
 )
 
 var (
-	dic map[string]interface{} //중복 문자열을 저장 할
+	dic map[string]interface{} //중복 문자열을 저장 할 맵
+	T   int
 )
 
 func Init() {
@@ -48,13 +49,30 @@ func PrintResult() {
 		fmt.Printf("[%s] ", i)
 	}
 	fmt.Printf(", %d\n", len(dic))
+
 }
 
 func main() {
 	Init()
+
+	//_, err := fmt.Scanln(&N)
+	/*
+		if err != nil {
+			fmt.Println("[E]", err)
+			return
+		}
+	*/
+	T = 1
 	input := "IAEFGSADAOFSOSPIPOKTOOTSCIVIC"
 	//input := "ILOVECOMPUTER"
 	//input := "TOOTSDS"
-	Analysis(input)
-	PrintResult()
+
+	for i := 0; i < T; i++ {
+
+		//fmt.Scanln(&input)
+		Analysis(input)
+		PrintResult()
+
+	}
+
 }
