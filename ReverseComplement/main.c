@@ -18,7 +18,7 @@ int setTwoCom(int n){
 		num=point;
 	}while(point>0);
 
-//	printBit(arr);
+	printBit(arr);
 	return getValue(arr);
 }
 void setInitArr(int *arr){
@@ -61,7 +61,7 @@ int getValue(int *arr){
 
 void printBit(int *arr){
 	int i;
-	for (i=0;i<sizeof(arr)/sizeof(int);i++){
+	for (i=0;i<MAX_SIZE;i++){
 		printf("%d ",arr[i]);
 	}
 	printf("\n");
