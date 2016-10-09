@@ -18,10 +18,10 @@ func main() {
 
 	/*		호수 초기화		*/
 	RainyDays = 0
-	N = 2
-	M = 4
+	N = 3
+	M = 6
 	lakeInfo := make([]int, N+1)
-	foreCastSchedule := []int{0, 0, 1, 1}
+	foreCastSchedule := []int{0, 1, 2, 0, 0, 0}
 	setLakeInfo(lakeInfo, foreCastSchedule)
 
 	/*		홍수의 여부 검사		*/
@@ -31,54 +31,10 @@ func main() {
 		printResult(foreCastSchedule)
 	}
 
-	/*		호수 초기화		*/
-	RainyDays = 0
-	N = 2
-	M = 4
-	lakeInfo = make([]int, N+1)
-	foreCastSchedule = []int{0, 1, 0, 2}
-	setLakeInfo(lakeInfo, foreCastSchedule)
-
-	/*		홍수의 여부 검사		*/
-	if haveFlood(foreCastSchedule) {
-		fmt.Println("NO")
-	} else {
-		printResult(foreCastSchedule)
-	}
-
-	/*		호수 초기화		*/
-	RainyDays = 0
-	N = 2
-	M = 3
-	lakeInfo = make([]int, N+1)
-	foreCastSchedule = []int{0, 1, 2}
-	setLakeInfo(lakeInfo, foreCastSchedule)
-
-	/*		홍수의 여부 검사		*/
-	if haveFlood(foreCastSchedule) {
-		fmt.Println("NO")
-	} else {
-		printResult(foreCastSchedule)
-	}
-
-	/*		호수 초기화		*/
-	RainyDays = 0
-	N = 2
-	M = 4
-	lakeInfo = make([]int, N+1)
-	foreCastSchedule = []int{0, 0, 0, 1}
-	setLakeInfo(lakeInfo, foreCastSchedule)
-
-	/*		홍수의 여부 검사		*/
-	if haveFlood(foreCastSchedule) {
-		fmt.Println("NO")
-	} else {
-		printResult(foreCastSchedule)
-	}
 }
 
 func printResult(_sch []int) {
-	fmt.Println("YES")
+
 	seq := len(_sch) - 1
 
 	for seq >= 0 {
@@ -87,6 +43,7 @@ func printResult(_sch []int) {
 				if _sch[i] == 0 {
 					_sch[i] = _sch[seq] * -1
 					seq = i
+					minusCnt++
 					break
 				}
 			}
@@ -94,23 +51,18 @@ func printResult(_sch []int) {
 		seq--
 	}
 
+	fmt.Println("YES")
 	for _, v := range _sch {
-		//fmt.Println(" i - ", i, " v- ", v)
+
 		if v < 0 {
 			fmt.Printf("%d ", v*-1)
 		} else if v == 0 {
 			fmt.Printf("%d ", v)
 		}
 	}
+
 	fmt.Println()
 
-	/*
-		for _, v := range _sch {
-			fmt.Printf("%d ", v)
-
-		}
-		fmt.Println()
-	*/
 }
 
 func haveFlood(_sch []int) bool {
