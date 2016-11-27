@@ -78,7 +78,7 @@ func GetShortedOpendWallIdx(targetWall int) int {
 		rs2 *= -1
 	}
 
-	fmt.Println("rs1:", rs1, "rs2:", rs2, "Wall1:", OpendedWallNum1, "Wall2:", OpendedWallNum2)
+	//fmt.Println("rs1:", rs1, "rs2:", rs2, "Wall1:", OpendedWallNum1, "Wall2:", OpendedWallNum2)
 	if rs1 <= rs2 {
 
 		return OpendedWallNum1
