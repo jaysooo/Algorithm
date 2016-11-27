@@ -123,6 +123,23 @@ func printAnswer(_bucket []int) {
 }
 
 func main() {
+
+	num := 1
+	num2 := 2
+	data := func(a int) int {
+
+		for i := 1; i < 100; i++ {
+			a = a + num2
+			//fmt.Println(a)
+		}
+
+		return a
+	}(num)
+
+	fmt.Println(data)
+
+	return
+
 	InitVariable()
 	CustomSort(Bucket)
 
