@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+/*		모든 경우를 봐야함	*/
 var (
 	WallWidth       int    //벽장 길이
 	WallMap         []bool //벽장의 문 상태 정보			true = open     false = closed
