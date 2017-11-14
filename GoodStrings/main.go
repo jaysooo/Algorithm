@@ -10,8 +10,8 @@ import (
 // 4.오른쪽 끝에서부터 같은 문자의 인덱스를 찾고 인덱스를 스왑후 나머지 문자는 왼쪽으로 스왑한다.
 // 5.문자열의 규모를 줄인다.0이 될때 까지
 func main() {
-	aStr := "aabbabab"
-	bStr := "aaaabbbb"
+	aStr := "aabaaabbabbb"
+	bStr := "abababababab"
 	// aStr := "abab"
 	// bStr := "aabb"
 

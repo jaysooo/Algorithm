@@ -1,28 +1,171 @@
+// Sample bigquery-quickstart creates a Google BigQuery dataset.
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io"
+	"log"
+
+	"google.golang.org/api/iterator"
+
+	// Imports the Google Cloud BigQuery client package.
+	"cloud.google.com/go/bigquery"
+	"golang.org/x/net/context"
+)
+
+type Item struct {
+	Date string
+	Name string
+}
 
 func main() {
-	coinTypes []int{1,5,10}
-	rec(4)
-}
-func recursive(data []int,price int){
-	if data.length < 1
-		return 0
+	ctx := context.Background()
+	// Sets your Google Cloud Platform project ID.
+	projectID := "jssvs-playground"
+	client, err := bigquery.NewClient(ctx, projectID)
+	// query(projectID)
+	// fmt.Printf("Query Run \n")
 
-	if price < 0 
-		return 0
-
-	if price == 0
-		return 1
-
-	return recursive(data[:-1],price)+recursive(data[max],price-data[max])
-
-}
-func rec(n int) int {
-	fmt.Println(n)
-	if n < 1 {
-		return 1
+	// rows, err := query(projectID)
+	if err != nil {
+		log.Fatal(err)
 	}
-	return n * rec(n-1)
+	// if err := printResults(os.Stdout, rows); err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	u := client.Dataset("mg_test").Table("test_db").Uploader()
+	items := []*Item{
+		// Item implements the ValueSaver interface.
+		{Date: "n1", Name: "jss"},
+		{Date: "n1", Name: "jss1"},
+		{Date: "n1", Name: "jss2"},
+	}
+	fmt.Println(items)
+	if err := u.Put(ctx, items); err != nil {
+		println("[E] PUT ERR", err)
+	}
+
 }
+func query(proj string) (*bigquery.RowIterator, error) {
+	ctx := context.Background()
+
+	client, err := bigquery.NewClient(ctx, proj)
+	if err != nil {
+		return nil, err
+	}
+
+	query := client.Query(
+		`SELECT
+                 APPROX_TOP_COUNT(corpus, 10) as title,
+                 COUNT(*) as unique_words
+                 FROM ` + "`publicdata.samples.shakespeare`;")
+	// Use standard SQL syntax for queries.
+	// See: https://cloud.google.com/bigquery/sql-reference/
+	query.QueryConfig.UseStandardSQL = true
+	return query.Read(ctx)
+}
+
+
+// printResults prints results from a query to the Shakespeare dataset.
+func printResults(w io.Writer, iter *bigquery.RowIterator) error {
+	for {
+		var row []bigquery.Value
+		err := iter.Next(&row)
+		if err == iterator.Done {
+			return nil
+		}
+		if err != nil {
+			return err
+		}
+
+		fmt.Fprintln(w, "titles:")
+		ts := row[0].([]bigquery.Value)
+		for _, t := range ts {
+			record := t.([]bigquery.Value)
+			title := record[0].(string)
+			cnt := record[1].(int64)
+			fmt.Fprintf(w, "\t%s: %d\n", title, cnt)
+		}
+
+		words := row[1].(int64)
+		fmt.Fprintf(w, "total unique words: %d\n", words)
+
+	}
+}
+
+// package main
+
+// import (
+// 	"fmt"
+// 	"io"
+// 	"log"
+// 	"os"
+
+// 	"cloud.google.com/go/bigquery"
+// 	"google.golang.org/api/iterator"
+
+// 	"golang.org/x/net/context"
+// )
+
+// func main() {
+// 	proj := os.Getenv("jssvs-playground")
+// 	if proj == "" {
+// 		fmt.Println("GOOGLE_CLOUD_PROJECT environment variable must be set.")
+// 		os.Exit(1)
+// 	}
+
+// 	rows, err := query(proj)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	if err := printResults(os.Stdout, rows); err != nil {
+// 		log.Fatal(err)
+// 	}
+// }
+
+// // query returns a slice of the results of a query.
+// func query(proj string) (*bigquery.RowIterator, error) {
+// 	ctx := context.Background()
+
+// 	client, err := bigquery.NewClient(ctx, proj)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+
+// 	query := client.Query(
+// 		`SELECT
+//                  APPROX_TOP_COUNT(corpus, 10) as title,
+//                  COUNT(*) as unique_words
+//                  FROM ` + "`publicdata.samples.shakespeare`;")
+// 	// Use standard SQL syntax for queries.
+// 	// See: https://cloud.google.com/bigquery/sql-reference/
+// 	query.QueryConfig.UseStandardSQL = true
+// 	return query.Read(ctx)
+// }
+
+// // printResults prints results from a query to the Shakespeare dataset.
+// func printResults(w io.Writer, iter *bigquery.RowIterator) error {
+// 	for {
+// 		var row []bigquery.Value
+// 		err := iter.Next(&row)
+// 		if err == iterator.Done {
+// 			return nil
+// 		}
+// 		if err != nil {
+// 			return err
+// 		}
+
+// 		fmt.Fprintln(w, "titles:")
+// 		ts := row[0].([]bigquery.Value)
+// 		for _, t := range ts {
+// 			record := t.([]bigquery.Value)
+// 			title := record[0].(string)
+// 			cnt := record[1].(int64)
+// 			fmt.Fprintf(w, "\t%s: %d\n", title, cnt)
+// 		}
+
+// 		words := row[1].(int64)
+// 		fmt.Fprintf(w, "total unique words: %d\n", words)
+// 	}
+// }

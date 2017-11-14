@@ -32,41 +32,27 @@ func isPal(str string) bool {
 		}
 	}
 
-	if 
 	return isTrue
 }
 
+//팰린드롬인지 여부 검사
 func isPalindrome(str string) bool {
-	isTrue := false
-	i := 1
-	if len(str) == 1 {
-		isTrue = true
-		return isTrue
-	}
-
-	p2 := len(str) / 2
-	p1 := len(str) / 2
-	if str[p1] == str[p2-1] {
-		p1 = p1 - 1
-	}
-	fmt.Println(p1, p2)
-
-	for (i <= p1) && (p2+i) <= len(str) && (p1-i) >= 0 {
-
-		if str[p1-i] == str[p2+i] {
+	//fmt.Println("Check : ", str)
+	i := 0
+	j := len(str) - 1
+	for i < j {
+		if str[i] == str[j] {
 			i++
-			fmt.Println("equal : ", i)
+			j--
 		} else {
-			i--
 			break
 		}
 	}
-
-	if (p1-1)-i <= 0 {
-		isTrue = true
+	if i >= j {
+		return true
+	} else {
+		return false
 	}
-	fmt.Println(p1, "--", p2, "i = ", i)
-	return isTrue
 }
 
 func getPalindrome(str string) int {
@@ -82,6 +68,6 @@ func getPalindrome(str string) int {
 			cursor--
 		}
 	}
-	fmt.Println("fincal cursor ", oncn-1)
+	//	fmt.Println("fincal cursor ", oncn-1)
 	return needChars
 }
