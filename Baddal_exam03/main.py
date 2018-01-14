@@ -1,9 +1,8 @@
 
 def duplicatedRect(ax1,ay1,ax2,ay2,bx1,by1,bx2,by2):
     dup_rect=[]
-
+    
     #not dup
-
     if (ax1>bx1):
         dup_rect.append(ax1)
     else:
@@ -37,8 +36,9 @@ inputCase=[700 ,400 ,1600 ,1100 ,0 ,400 ,1100,900,900 ,900 ,0 ,1800 ,650]
 #print(duplicatedRect(700 ,400 ,1600 ,1100 ,0 ,400 ,1100,900))
 # calculate : 1 - ((1-2)+(1-3)-(2-3))
 # a = (1-2) ,  b= (1-3),  c= (2-3 )
-a=duplicatedRect(700 ,400 ,1600 ,1100 ,0 ,400 ,1100,900)
-b=duplicatedRect(700 ,400 ,1600 ,1100, 900 ,0 ,1800 ,650)
-c=duplicatedRect(0 ,400 ,1100,900, 900 ,0 ,1800 ,650)
-getAnser=calulateArea(inputCase[0:4]) -(calulateArea(a)+calulateArea(b)-calulateArea(c))
-print(getAnser)
+print(duplicatedRect(0,0,300,300,100,0,200,300))
+#a=duplicatedRect(700 ,400 ,1600 ,1100 ,0 ,400 ,1100,900)
+#b=duplicatedRect(700 ,400 ,1600 ,1100, 900 ,0 ,1800 ,650)
+#c=duplicatedRect(0 ,400 ,1100,900, 900 ,0 ,1800 ,650)
+#getAnser=calulateArea(inputCase[0:4]) -(calulateArea(a)+calulateArea(b)-calulateArea(c))
+#print(getAnser)
