@@ -2,22 +2,26 @@ import java.util.*;
 public class Main{
     public static void main(String[] args){
             System.out.println("program Run");
-            // int n=6;
-            // int d=1;
-            // int k=1;
-            // int j=1;
+            int n=6;
+            int d=1;
+            int k=1;
+            int j=1;
 
-            int n=4;
-            int d=0;
-            int k=2;
-            int j=2;
-
+            // int n=4;
+            // int d=0;
+            // int k=2;
+            // int j=2;
+            
             int winner=0;
             ArrayList<Integer> lottoBucket = new ArrayList<Integer>();
             lottoBucket.add(1);
-            for (int i = 4; i >= 2; i --){₩
+            // for (int i = n; i >= 2; i --){
+            //     lottoBucket.add(i);
+            // }
+            for (int i = 2; i <=n; i ++){
                 lottoBucket.add(i);
             }
+
 
             ListIterator<Integer> itr = lottoBucket.listIterator();
 
@@ -25,14 +29,14 @@ public class Main{
             while(true){
                 itr.next();
                 //System.out.println(itr.next());
-  //              System.out.println("MoveCnt:"+moveCnt+"\tk:"+k+"\tbucketSize:"+lottoBucket.size());
+                System.out.println("MoveCnt:"+moveCnt+"\tk:"+k+"\tbucketSize:"+lottoBucket.size());
                 
                 if (moveCnt==k){   
-//                    System.out.print("탈락자:"+lottoBucket.get(itr.nextIndex()-1));
+                    System.out.print("탈락자:"+lottoBucket.get(itr.nextIndex()-1));
                     itr.remove();
                     k=k+j;
                     moveCnt=0;
-//                 System.out.println("\tMoveCnt:"+moveCnt+"\tk:"+k);
+                 System.out.println("\tMoveCnt:"+moveCnt+"\tk:"+k);
                 }
                 moveCnt++;
                 if (lottoBucket.size()==1){
