@@ -1,6 +1,7 @@
 import sys
 
 ip = int(input())
+
 minCnt=ip
 first=0
 def solution(n,cnt):
@@ -29,3 +30,5 @@ def solution(n,cnt):
 
 solution(ip,-1)
 print(minCnt)
+
+
