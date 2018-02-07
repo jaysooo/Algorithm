@@ -16,9 +16,7 @@ def solution(a,b,str,pattern):
         
         resultSet.add(str)
         return 0
-    
-    
-    
+       
     return solution(a+1,b,str,'(')+solution(a,b+1,str,')')
     
 
