@@ -1,10 +1,8 @@
 
-inputNum=3
-
+inputNum=5
 #a = (  
 #b = )
 resultSet=set()
-
 def solution(a,b,str,pattern):
     
     if (a < b) | (a > inputNum) | (b > inputNum):
@@ -13,14 +11,13 @@ def solution(a,b,str,pattern):
     str+=pattern
 
     if ((a==inputNum) & (b==inputNum)):
-        
         resultSet.add(str)
-        return 0
+        return 1
        
     return solution(a+1,b,str,'(')+solution(a,b+1,str,')')
     
-
 result=''
-solution(0,0,result,'')
+cnt=solution(0,0,result,'')
 
+print(cnt)
 print(resultSet)

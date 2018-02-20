@@ -1,23 +1,16 @@
 
 inputT=int(input())
 t=0
-cnt=0
-def solution(n,inc):
-    global cnt
-    n=inc+n
-
+def solution(n):
+    global t
     if n>t:
         return 0
 
     if n==t:
-        cnt+=1
-        return 0
+        return 1
 
-    return solution(n,1)+solution(n,2)+solution(n,3)
+    return solution(n+1)+solution(n+2)+solution(n+3)
 
 for i in range(0,inputT):
-    cnt=0
-    t=int(input())
-    solution(0,0)
-    print(cnt)
-
+    t=int(input()) 
+    print(solution(0))
