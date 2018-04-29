@@ -40,7 +40,7 @@ def solution(_arr,idx):
             cnt+=1
             maxSet.append(maxVal)
 
-    
+    print("tt")    
     print(maxSet[-1])
     return maxSet[-1]
     
