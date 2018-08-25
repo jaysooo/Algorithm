@@ -24,8 +24,7 @@ def OR(x1,x2):
     tmp=np.sum(w*x)+b
 
     if tmp > 0.1:
-        return 1
-    else:
+           
         return 0
 
 def AND(x1,x2):
