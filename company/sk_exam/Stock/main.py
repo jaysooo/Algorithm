@@ -1,3 +1,5 @@
+import collections
+
 t=[4,1,4,7,6]
 
 def solution(price):
@@ -17,4 +19,19 @@ def solution(price):
     return answer
 
 
+def solution2(price):
+    priceMap=collections.OrderedDict()
+
+    #Cache Create
+    for idx,val in enumerate(price):
+        priceMap.setdefault(val,[]).append(idx)
+    
+    
+    # tmp=priceMap.keys().index(6)
+    # print(priceMap[tmp+1])
+    
+
+
+    
+#solution2(t)
 print(solution(t))
