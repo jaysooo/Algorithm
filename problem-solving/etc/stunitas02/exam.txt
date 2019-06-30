@@ -1,0 +1,64 @@
+ST Unitas :: Coding Test Platform
+SUBMIT STATUS
+피자 / Pizza
+* English version is provided below.
+
+피자
+
+원택님은 다음 타운홀 미팅에서 먹을 피자를 주문하라는 업무를 받았다. 특히 타운홀 미팅에 참석하는 모든 사람이 피자를 한 조각씩 먹을 수 있으면서도 남는 피자 조각이 안 생기도록 하라는 지시를 받았다. 주문할 수 있는 피자의 크기는 스몰, 미디움, 라지로 3종류가 있다. 각각의 사이즈가 몇 조각으로 나눠지는지와 타운홀 미팅에 참가하는 사람의 수를 알 때 지시에 맞춰서 피자를 주문할 수 있는지를 판단하는 프로그램을 작성해보자. 이때 사이즈와 관계없이 주문할 수 있는 피자의 수에는 제한이 없다고 가정한다.
+
+입력
+
+입력은 여러 개의 테스트 케이스로 구성되어있다. 첫 줄에는 테스트 케이스의 개수가 주어진다. 다음 줄부터 각각의 테스트 케이스가 별도의 줄에 주어진다.
+
+테스트 케이스의 첫 줄에는 가게에서 파는 스몰, 미디움, 라지 사이즈의 피자가 몇 조각으로 나누어지는지를 나타내는 자연수 A, B, C(1 ≤ A < B < C ≤ 50)와 타운홀 미팅에 참가하는 사람의 수 N(1 ≤ N ≤ 300)이 주어진다.
+
+출력
+
+각각의 테스트 케이스에 대해 지시대로 피자를 주문할 수 있다면 1을 출력한다. 불가능하다면 0을 출력한다.
+
+테스트 케이스마다 별도의 줄에 정답을 출력해야 한다.
+
+입출력 예시 설명
+
+첫 번째 테스트 케이스
+
+스몰 사이즈 피자 4판, 미디움 사이즈 5판, 라지 사이즈 4판을 주문하면 총 조각 수는 5x4 + 9x5 + 12x4 = 20 + 45 + 48 = 113으로 타운홀 미팅에 참여하는 사람 수와 같다.
+
+두 번째 테스트 케이스
+
+이 경우는 피자를 어떻게 주문해도 112조각을 맞추는 것이 불가능하다.
+
+Pizza
+
+Wontaek was assigned to order pizza for the upcoming town hall meeting. Mainly, he should buy the appropriate amount of pizza so that everyone receives precisely one piece of pizza and there is no leftover. The pizza restaurant sells three kinds of size, small, medium, and large. Let's write a program that automatically determines whether it is possible to fulfill the condition that the number of pieces from the ordered pizza matches the number of people. Note that you can order any amount of pizza, regardless of its size.
+
+Input
+
+Input consists of several test cases. The number of test cases is provided at the first line. Following lines are given each test case.
+
+Each test case consists of positive integers A, B, C (1 ≤ A < B < C ≤ 50) indicating how many pieces we can get from one small-, medium-, and large-sized pizza, respectively, and the number of people N (1 ≤ N ≤ 300) who are participating in the town hall meeting.
+
+Output
+
+For each test case, print 1 if it is possible to order pizza following the instruction. Otherwise, print 0.
+
+Answers should be on different lines for each test case.
+
+Explanation for Samples
+
+First Test Case
+
+Order 4 small-sized pizza, 5 medium-sized pizza, and 4 large sized pizza. Then the number of pieces you receive is 5x4 + 9x5 + 12x4 = 20 + 45 + 48 = 113, which is same as the number of participants.
+
+Second Test Case
+
+There is no way of ordering pizza to satisfy the condition.
+
+예제 입력1
+2
+5 9 12 113
+3 6 9 112
+예제 출력1
+1
+0

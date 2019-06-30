@@ -1,0 +1,108 @@
+ST Unitas :: Coding Test Platform
+SUBMIT STATUS
+우주 여행 / Space Travel
+* English version is provided below.
+
+우주 여행
+
+올 한해도 열심히 일한 원택님은 2019년에 여행을 떠나기로 계획했다. 하지만 지난 번 사막에서의 안 좋은 기억 때문에 이번에는 자동차를 몰지 않겠다고 결심했다. 하지만 어느 나라에 놀러가든 차가 필요하다는 사실을 깨닫고는 좌절했다. 그렇게 집에서 영화나 보며 하루를 보내다가 문득 아이디어가 떠올랐다.
+
+'내년에 갤럭시 워즈가 개봉한다는데 나도 한 번 우주 여행이나 해보자!'
+
+그래서 원택님은 지구를 벗어나 해왕성까지 가기로 결심했다. 물론 원택님은 갑부가 아니기에 별 사이를 여행하는 동안 돈을 벌기로 했다. 대신 사막에서와 똑같은 일이 일어나지 않도록 이번에는 철저하게 준비를 해서 사전에 경유할 별의 방문 순서를 정했다.
+
+이제 각각의 행성에서 다음 행성까지의 이동 수단을 정해야 한다. 원택님이 여행하려는 모든 경로상에는 실험중인 텔레포트 장치가 있다. 텔레포트 장치를 만든 기업에서는 안전성 검증을 위해 소정의 경비를 지급하고 피험자를 모집하고 있다. 그러니까 이 장치를 통해서 다른 행성으로 넘어갈 경우 돈을 받을 수 있다는 것이다. 장치에 오류가 생겨서 원택님이 사라지면 어떡하냐 할 수 있는데, 지금은 계획만 짜는 중이니까 그런 건 나중에 생각하자.
+
+이외에도 모든 경로상에는 우주선을 운행한다. 여기서도 재밌는 사실은 우주선을 타고 날아가면서 내부 청소를 하면 교통비를 내지 않아도 되고, 오히려 얼마의 경비를 지급해준다는 것이다.
+
+원택님은 여행을 하면서 최대한 많은 돈을 벌고 싶다. 하지만 연차 일수는 정해져있기 때문에 여행을 할 수 있는 최대 기간도 정해져있다. 여러분이 해야 할 일은 원택님이 이 기간 동안 최대한 많은 돈을 벌 수 있도록 적절히 이동 수단을 정해주는 것이다. 한 별에서 다른 별까지 이동하는 동안은 하나의 이동 수단만을 이용해야 하지만, 그렇다고 모든 구간을 같은 이동 수단으로 갈 필요는 없다.
+
+입력
+
+입력은 여러 개의 테스트 케이스로 구성되어있다. 첫 줄에는 테스트 케이스의 개수가 주어진다. 다음 줄부터 각각의 테스트 케이스가 별도의 줄에 주어진다.
+
+테스트 케이스의 첫 줄에는 여행을 하며 거치게 될 별의 수 N(3 ≤ N ≤ 100)과 여행을 할 수 있는 최대 기간 K(1 ≤ K ≤ 100,000)가 주어진다. 두 번째 줄부터 한 줄에 하나씩 우주선을 탔을 때의 이동 시간 t1, i(1 ≤ t1, i ≤ 10,000), 수익 w1, i(1 ≤ w1, i ≤ 1,000,000)과 텔레포트 장치를 이용할 때의 이동 시간 t2, i(1 ≤ t2, i ≤ 10,000), 수익 w2, i(1 ≤ w2, i ≤ 1,000,000)이 주어진다.
+
+정해진 기간 내에 여행을 할 수 없는 경우는 입력으로 들어오지 않는다.
+
+출력
+
+각각의 테스트 케이스에 대해 주어진 기간을 초과하지 않으면서 벌 수 있는 최대 금액을 출력한다.
+
+테스트 케이스마다 별도의 줄에 정답을 출력해야 한다.
+
+입출력 예시 설명
+
+첫 번째 테스트 케이스
+
+첫 번째 구간과 두 번째 구간에서는 우주선을 타고, 세 번째 구간은 텔레포트 장치를 이용한다. 그러면 여행 기간은 500 + 800 + 300 = 1,600으로 주어진 기간 1,650을 넘지 않는다.
+
+두 번째 테스트 케이스
+
+첫 번째 구간과 네 번째 구간에서는 우주선을 타고, 두 번째 구간과 세 번째 구간에서는 텔레포트 장치를 이용한다. 그러면 여행 기간은 1,000 + 400 + 400 + 1,200 = 3,000으로 주어진 기간과 동일하다.
+
+세 번째 테스트 케이스
+
+두 번째 구간만 우주선을 타고, 나머지 첫 번째 구간과 세 번째 구간은 텔레포트 장치를 이용한다. 그러면 여행 기간은 200 + 100 + 300 = 600으로 주어진 기간과 동일하다.
+
+Space Travel
+
+Worked diligently, Wontaek decided to take a trip in 2019. He did not want to ride a car because of the bad memory in the desert. However, he was disappointed when he found out that traveling always requires a car. Then he came up with an idea.
+
+'I heard that the Galaxy Wars is released next year, so how about going to space travel?'
+
+So Wontaek decided to take a trip to Neptune. Since he is not a millionaire, he decided to make some money during the trip. He chose which starts to visit in advance to avoid the frustrating situation from the past trip in the desert.
+
+Now he has to choose which transportation to ride on each path. There are experimental teleport gates that summons the user from one star to another. The company is recruiting subjects to test their safeties. Hence you get paid for using the teleport gate. Here, you might worry if something wrong happens and Wontaek disappears, but let's not consider about that situation for now.
+
+Other than teleport gates, Wontaek can also ride a space shuttle. This time, he can get paid as well for cleaning the shuttle while riding.
+
+Wontaek wants to earn as much money as he can during the trip. Since the vacation he can use is not infinite, he can neither travel infinitely. Your task is to choose the appropriate transportations for each path to maximize Wontaek's income.
+
+Input
+
+Input consists of several test cases. The number of test cases is provided at the first line. Following lines are given each test case.
+
+Each test case begins with the number of stars N (3 ≤ N ≤ 100) to pass through, and the maximum time K (1 ≤ K ≤ 100,000) Wontaek can spend. Then the travel time t1, i (1 ≤ t1, i ≤ 10,000) and pay w1, i(1 ≤ w1, i ≤ 1,000,000) of the space shuttle, and similarly t2, i (1 ≤ t2, i ≤ 10,000) and w2, i (1 ≤ w2, i ≤ 1,000,000) of the teleport gate for each interval is provided.
+
+It is guaranteed possible to travel to Neptune in given time.
+
+Output
+
+For each test case, print the maximum amount of money Wontaek can earn while traveling to Neptune.
+
+Answers should be on different lines for each test case.
+
+Explanation for Samples
+
+First Test Case
+
+Take space shuttle on the first and second paths, and teleport gate on the third path. Then the travel time is 500 + 800 + 300 = 1,600, which does not exceed the given time 1,650.
+
+Second Test Case
+
+Take space shuttle on the first and fourth paths, and teleport gate on the second and third paths. Then the travel time is 1,000 + 400 + 400 + 1,200 = 3,000, which is equal to the given time.
+
+Third Test Case
+
+Take space shuttle on only the second path, and teleport gate on other paths. Then the travel time is 200 + 100 + 300 = 600, which is equal to the given time.
+
+예제 입력1
+3
+3 1650
+500 200 200 100
+800 370 300 120
+700 250 300 90
+4 3000
+1000 2000 300 700
+1100 1900 400 900
+900 1800 400 700
+1200 2300 500 1200
+3 600
+500 150 200 1000
+100 835 200 324
+200 125 300 900
+예제 출력1
+660
+5900
+2735
