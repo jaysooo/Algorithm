@@ -1,6 +1,6 @@
 #7
 
-import sys
+
 class SimpleTree:
     parent_idx=[]
 #    child_idx=[]
